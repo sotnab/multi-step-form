@@ -1,0 +1,32 @@
+.finish {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin: 50px 0;
+
+    @media screen and (min-width: $breakpoint) {
+        margin: auto;
+    }
+}
+
+.finish__title {
+    @media screen and (min-width: $breakpoint) {
+        font-size: 2rem;
+    }
+}
+
+.finish__icon {
+    width: 55px;
+
+    @media screen and (min-width: $breakpoint) {
+        width: 100px;
+        padding: 10px;
+    }
+}
+
+.finish__text {
+    text-align: center;
+    color: $cool-gray;
+    line-height: 1.5
+}

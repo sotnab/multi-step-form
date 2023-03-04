@@ -1,0 +1,59 @@
+.form {
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+   margin: 0 15px;
+   padding: 30px 25px;
+   background-color: $white;
+   border-radius: 10px;
+   box-shadow: 2px 5px 25px -5px rgba(0, 0, 0, 0.2);
+   
+   @media screen and (min-width: $breakpoint) {
+      padding: 30px 80px;
+      box-shadow: none;
+   }
+}
+
+.form__title {
+   font-size: 1.5rem;
+
+   @media screen and (min-width: $breakpoint) {
+      font-size: 2rem;
+   }
+}
+
+.form__paragraph {
+   color: $cool-gray;
+   line-height: 1.5;
+}
+
+.form__main {
+   padding-top: 10px;
+
+   @media screen and (min-width: $breakpoint) {
+      padding-top: 30px;
+   }
+}
+
+.form__buttons {
+   position: fixed;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   display: flex;
+   justify-content: space-between;
+   height: $buttons-bar-height;
+   padding: 15px;
+   background-color: $white;
+
+   .btn--next {
+      margin-left: auto;
+   }
+
+   @media screen and (min-width: $breakpoint) {
+      position: static;
+      height: auto;
+      margin-top: auto;
+      padding: 0;
+   }
+}

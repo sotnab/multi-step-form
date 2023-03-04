@@ -1,0 +1,77 @@
+.select {
+    display: grid;
+    gap: 10px;
+
+    @media screen and (min-width: $breakpoint) {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+}
+
+.select__item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas: 'icon name' 'icon price';
+    row-gap: 5px;
+    column-gap: 15px;
+    padding: 15px;
+    border: 1px solid $light-gray;
+    border-radius: 10px;
+    transition: 100ms;
+
+    &--active {
+        border-color: $marine-blue;
+        background-color: $alabaster;
+    }
+
+    @media screen and (min-width: $breakpoint) {
+        grid-template-rows: 90px;
+        grid-template-areas: 'icon icon' 'name name' 'price price';
+        cursor: pointer;
+
+        &:hover {
+            border-color: $marine-blue;
+        }
+    }
+}
+
+.select__icon {
+    grid-area: icon;
+}
+
+.select__name {
+    grid-area: name;
+}
+
+.select__price {
+    grid-area: price;
+    color: $cool-gray;
+}
+
+.select__discount {
+    grid-column: 2 / -1;
+    font-weight: 500;
+    font-size: 0.75rem;
+}
+
+.billing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: $alabaster;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-radius: 10px;
+}
+
+.billing__name {
+    color: $cool-gray;
+
+    &--active {
+        color: $marine-blue;
+    }
+}

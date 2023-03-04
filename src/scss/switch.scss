@@ -1,0 +1,24 @@
+.switch {
+    width: $switch-width;
+    height: $switch-height;
+    background-color: $marine-blue;
+    border-radius: 10px;
+    border: none;
+
+    &--active .switch__btn {
+        transform: translateX($switch-width - $switch-height);
+    }
+
+    @media (min-width: $breakpoint) {
+        cursor: pointer;
+    }
+}
+
+.switch__btn {
+    height: $switch-height;
+    width: $switch-height;
+    background-color: $white;
+    border-radius: 50%;
+    border: 4px solid $marine-blue;
+    transition: 100ms;
+}

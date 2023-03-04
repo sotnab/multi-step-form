@@ -1,0 +1,75 @@
+.addons {
+    display: grid;
+    gap: 10px;
+}
+
+.addons__item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas: 'checkmark name price' 'checkmark caption price';
+    align-items: center;
+    column-gap: 15px;
+    row-gap: 5px;
+    padding: 12px 15px;
+    border: 1px solid $light-gray;
+    background-color: $white;
+    border-radius: 10px;
+    transition: 100ms;
+    
+    &--active {
+        border-color: $purplish-blue;  
+        background-color: $alabaster;
+
+        .addons__checkmark {
+            background-color: $purplish-blue;
+        }
+    }
+
+    @media screen and (min-width: $breakpoint) {
+        padding: 20px;
+        cursor: pointer;
+
+        &:hover {
+            border-color: $purplish-blue;
+        }
+    }
+}
+
+.addons__checkmark {
+    grid-area: checkmark;
+    display: block;
+    padding: 5px 4px;
+    background-color: $white;
+    border: 1px solid $light-gray;
+    border-radius: 5px;
+}
+
+.addons__name {
+    grid-area: name;
+    font-size: 0.9rem;
+
+    @media screen and (min-width: $breakpoint) {
+        font-size: 1rem;
+    }
+}
+
+.addons__caption {
+    grid-area: caption;
+    color: $cool-gray;
+    font-size: 0.75rem;
+
+    @media screen and (min-width: $breakpoint) {
+        font-size: 0.85rem;
+    }
+}
+
+.addons__price {
+    grid-area: price;
+    color: $purplish-blue;
+    font-size: 0.75rem;
+    font-weight: 500;
+
+    @media screen and (min-width: $breakpoint) {
+        font-size: 0.85rem;
+    }
+}

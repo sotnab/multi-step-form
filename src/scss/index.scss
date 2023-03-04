@@ -1,0 +1,55 @@
+@import 'variables';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-size: $font-size;
+    font-family: $font-family;
+}
+
+.App {
+    min-height: 100vh;
+    margin-bottom: $buttons-bar-height;
+    background-image: url('../images/bg-sidebar-mobile.svg');
+    background-repeat: no-repeat;
+    background-color: $magnolia;
+    color: $marine-blue;
+
+    
+    @media screen and (min-width: $breakpoint) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: none;
+        margin-bottom: 0;
+    }
+}
+
+.wrapper {
+    @media screen and (min-width: $breakpoint) {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        max-width: 950px;
+        width: 100%;
+        height: 600px;
+        padding: 16px;
+        background-color: $white;
+        box-shadow: 2px 5px 25px -5px rgba(0, 0, 0, 0.2);
+        border-radius: 15px;
+    }
+}
+
+@import 'btn';
+@import 'switch';
+@import 'form-pannel';
+@import 'form-stepper';
+@import 'personal-data';
+@import 'select-plan';
+@import 'add-ons';
+@import 'summary';
+@import 'finish';
