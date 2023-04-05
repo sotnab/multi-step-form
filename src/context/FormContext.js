@@ -31,6 +31,7 @@ const defaultData = {
     name: '',
     email: '',
     phoneNumber: '',
+    triedToFinish: false,
     plan: 0,
     billing: 0,
     addOns: new Set()
@@ -38,7 +39,7 @@ const defaultData = {
 
 
 const formContextReducer = (state, action) => {
-    if(state.finished) {
+    if (state.finished) {
         return state
     }
 
@@ -74,6 +75,10 @@ const formContextReducer = (state, action) => {
             state.phoneNumber = action.payload
             break
 
+        case 'SET_TRIED_TO_FINISH':
+            state.triedToFinish = action.payload
+            break
+            
         case 'SET_PLAN':
             state.plan = action.payload
             break
@@ -83,7 +88,7 @@ const formContextReducer = (state, action) => {
             break
 
         case 'TOGGLE_ADDON':
-            if(state.addOns.has(action.payload)) {
+            if (state.addOns.has(action.payload)) {
                 state.addOns.delete(action.payload)
             } else {
                 state.addOns.add(action.payload)
