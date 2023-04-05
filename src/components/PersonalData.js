@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import useFormContext from '../hooks/useFormContext'
 
 const PersonalData = () => {
@@ -8,7 +8,7 @@ const PersonalData = () => {
     const [emailError, setEmailError] = useState('')
     const [phoneNumberError, setPhoneNumberError] = useState('')
 
-    const handleNameBlur = () => {
+    const validateName = () => {
         setNameError('')
 
         if (!state.name) {
@@ -16,7 +16,7 @@ const PersonalData = () => {
         }
     }
 
-    const handleEmailBlur = () => {
+    const validateEmail = () => {
         setEmailError('')
 
         if (!state.email) {
@@ -24,13 +24,25 @@ const PersonalData = () => {
         }
     }
 
-    const handlePhoneNumberBlur = () => {
+    const validatePhoneNumber = () => {
         setPhoneNumberError('')
 
         if (!state.phoneNumber) {
             setPhoneNumberError('This field is required')
         }
     }
+
+    useEffect(() => {
+        if(!state.triedToFinish) {
+            return
+        }
+        
+        setTimeout(() => {
+            validateName()
+            validateEmail()
+            validatePhoneNumber()
+        }, 500)
+    }, [])
 
     return (
         <div className="personal-data">
@@ -47,7 +59,7 @@ const PersonalData = () => {
                     placeholder="e.g. Stephen King"
                     value={state.name}
                     onChange={(e) => dispatch({ type: 'SET_NAME', payload: e.target.value })}
-                    onBlur={handleNameBlur}
+                    onBlur={validateName}
                 />
             </div>
 
@@ -64,7 +76,7 @@ const PersonalData = () => {
                     placeholder="e.g. stephenking@lorem.com"
                     value={state.email}
                     onChange={(e) => dispatch({ type: 'SET_EMAIL', payload: e.target.value })}
-                    onBlur={handleEmailBlur}
+                    onBlur={validateEmail}
                 />
             </div>
 
@@ -81,7 +93,7 @@ const PersonalData = () => {
                     placeholder="e.g. +1 234 567 890"
                     value={state.phoneNumber}
                     onChange={(e) => dispatch({ type: 'SET_PHONE_NUMBER', payload: e.target.value })}
-                    onBlur={handlePhoneNumberBlur}
+                    onBlur={validatePhoneNumber}
                 />
             </div>
         </div >

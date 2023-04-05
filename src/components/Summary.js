@@ -8,7 +8,7 @@ const Summary = () => {
 
     const goToPlans = (e) => {
         e.preventDefault()
-        
+
         dispatch({ type: 'SET_STEP', payload: 1 })
     }
 
@@ -63,7 +63,9 @@ const Summary = () => {
 
             <div className="summary__total">
                 <small className="summary__small">Total (per month)</small>
-                <span className="summary__total-price">+${getTotalPrice()}/{state.billing === 0 ? 'mo' : 'yr'}</span>
+                <span className="summary__total-price">
+                    +${getTotalPrice()}/{state.billing === 0 ? 'mo' : 'yr'}
+                </span>
             </div>
         </div>
     )
